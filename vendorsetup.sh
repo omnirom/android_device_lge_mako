@@ -15,3 +15,4 @@
 #
 
 add_lunch_combo full_mako-userdebug
+add_lunch_combo custom_mako-userdebug
