@@ -35,4 +35,9 @@ PRODUCT_BRAND := google
 PRODUCT_MODEL := Nexus 4
 PRODUCT_MANUFACTURER := LGE
 
+# Kernel inline build
+TARGET_KERNEL_CONFIG := mako_defconfig
+TARGET_VARIANT_CONFIG := mako_defconfig
+TARGET_SELINUX_CONFIG := mako_defconfig
+
 $(call inherit-product-if-exists, vendor/lge/mako/mako-vendor.mk)
