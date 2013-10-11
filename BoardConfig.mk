@@ -22,7 +22,6 @@ TARGET_CPU_SMP := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := krait
-TARGET_MPDECISION_BOOST_SOCKET := /dev/socket/mpdecision/touchboost
 
 TARGET_NO_BOOTLOADER := true
 
@@ -70,7 +69,7 @@ TARGET_USES_SF_BYPASS := true
 TARGET_USES_C2D_COMPOSITON := true
 
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-#TARGET_RECOVERY_UI_LIB := librecovery_ui_mako
+TARGET_RECOVERY_UI_LIB := librecovery_ui_mako
 
 TARGET_RECOVERY_FSTAB = device/lge/mako/fstab.mako
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -93,30 +92,40 @@ TARGET_NO_RPC := true
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/lge/mako
 
-BOARD_SEPOLICY_DIRS := \
+BOARD_SEPOLICY_DIRS += \
        device/lge/mako/sepolicy
 
-BOARD_SEPOLICY_UNION := \
-       app.te \
-       bluetooth.te \
-       compatibility.te \
+BOARD_SEPOLICY_UNION += \
+       bluetooth_loader.te \
+       bridge.te \
+       camera.te \
+       conn_init.te \
        device.te \
+       dhcp.te \
        domain.te \
        drmserver.te \
        file.te \
        file_contexts \
        hci_init.te \
+       init.te \
        init_shell.te \
        keystore.te \
-       mediaserver.te \
        kickstart.te \
+       mediaserver.te \
+       mpdecision.te \
+       netmgrd.te \
        nfc.te \
+       qmux.te \
        rild.te \
+       rmt.te \
+       sensors.te \
        surfaceflinger.te \
-       system.te \
+       system_server.te \
+       tee.te \
+       te_macros \
+       thermald.te \
        ueventd.te \
-       wpa.te
-
+       wpa_supplicant.te
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
