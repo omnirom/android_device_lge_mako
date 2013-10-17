@@ -16,4 +16,4 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_mako.mk \
-    $(LOCAL_DIR)/custom_mako.mk
+    $(LOCAL_DIR)/omni_mako.mk
