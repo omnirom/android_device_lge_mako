@@ -50,6 +50,7 @@ on init
 
 on fs
     mount_all ./fstab.mako
+    restorecon_recursive /persist
     setprop ro.crypto.fuse_sdcard true
     write /sys/kernel/boot_adsp/boot 1
 
@@ -147,6 +148,11 @@ on post-fs-data
 # to observe dnsmasq.leases file for dhcp information of soft ap.
     chown dhcp system /data/misc/dhcp
 
+    mkdir /data/misc/playready
+    restorecon /data/misc/playready
+    mkdir /data/misc/tzapps
+    restorecon /data/misc/tzapps
+
     write /dev/wcnss_wlan 1
     write /sys/module/wcnss_ssr_8960/parameters/enable_riva_ssr 1
 
@@ -179,6 +185,7 @@ on post-fs-data
     mkdir /data/system/sensors
     chmod 665 /data/system/sensors
     write /data/system/sensors/settings 1
+    restorecon /data/system/sensors/settings
     chmod 660 /data/system/sensors/settings
 
     # AKM setting data
@@ -197,6 +204,7 @@ on post-fs-data
 
     # kickstart
     mkdir /data/qcks 0770 system system
+    restorecon_recursive /data/qcks
     chown system /dev/block/platform/msm_sdcc.1/by-name
 
     setprop vold.post_fs_data_done 1
@@ -207,8 +215,7 @@ on post-fs-data
     chown system system /sys/class/leds/red/device/lock
 
     # communicate with mpdecision and thermald
-    mkdir /dev/socket/mpdecision 0770 system system
-    chmod 2770 /dev/socket/mpdecision
+    mkdir /dev/socket/mpdecision 2770 root system
 
     # adjust vibrator amplitude
     write /sys/class/timed_output/vibrator/amp 70
@@ -273,6 +280,7 @@ service rmt_storage /system/bin/rmt_storage
 service hciattach /system/bin/sh /system/etc/init.mako.bt.sh
     class late_start
     user bluetooth
+    seclabel u:r:bluetooth_loader:s0
     group qcom_oncrpc bluetooth net_bt_admin system
     disabled
     oneshot
@@ -389,7 +397,7 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     user camera
     group camera system inet input
 
-service conn_init /system/bin/logwrapper /system/bin/conn_init
+service conn_init /system/bin/conn_init
     class late_start
     user system
     group system wifi
@@ -414,7 +422,7 @@ service qseecomd /system/bin/qseecomd
     user system
     group system
 
-service diag_mdlog /system/bin/logwrapper /system/bin/diag_mdlog -s 100
+service diag_mdlog /system/bin/diag_mdlog -s 100
     class late_start
     disabled
 
