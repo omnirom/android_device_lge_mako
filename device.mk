@@ -35,14 +35,12 @@ PRODUCT_PACKAGES += \
     charger_res_images \
     charger
 
-ifneq ($(findstring svelte, $(TARGET_PRODUCT)),)
-LOCAL_KERNEL := device/lge/mako_svelte-kernel/kernel
-else
-LOCAL_KERNEL := device/lge/mako-kernel/kernel
-endif
-
-PRODUCT_COPY_FILES := \
-	$(LOCAL_KERNEL):kernel
+# Live Wallpapers
+PRODUCT_PACKAGES += \
+        LiveWallpapers \
+        LiveWallpapersPicker \
+        VisualizationWallpapers \
+        librs_jni
 
 PRODUCT_COPY_FILES += \
 	device/lge/mako/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
