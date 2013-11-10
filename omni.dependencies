@@ -26,31 +26,37 @@
   {
     "repository": "platform/hardware/qcom/bt",
     "target_path": "hardware/qcom/bt",
-    "remote": "aosp"
+    "remote": "aosp",
+    "revision": "android-4.4_r1"
   },
   {
     "repository": "platform/hardware/qcom/camera",
     "target_path": "hardware/qcom/camera",
-    "remote": "aosp"
+    "remote": "aosp",
+    "revision": "android-4.4_r1"
   },
   {
     "repository": "platform/hardware/qcom/keymaster",
     "target_path": "hardware/qcom/keymaster",
-    "remote": "aosp"
+    "remote": "aosp",
+    "revision": "android-4.4_r1"
   },
   {
     "repository": "platform/hardware/qcom/msm8960",
     "target_path": "hardware/qcom/msm8960",
-    "remote": "aosp"
+    "remote": "aosp",
+    "revision": "android-4.4_r1"
   },
   {
     "repository": "platform/hardware/qcom/sensors",
     "target_path": "hardware/qcom/sensors",
-    "remote": "aosp"
+    "remote": "aosp",
+    "revision": "android-4.4_r1"
   },
   {
     "repository": "platform/hardware/qcom/wlan",
     "target_path": "hardware/qcom/wlan",
-    "remote": "aosp"
+    "remote": "aosp",
+    "revision": "android-4.4_r1"
   }
 ]
