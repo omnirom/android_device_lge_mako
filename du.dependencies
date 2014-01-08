@@ -1,0 +1,10 @@
+[
+ {
+   "repository": "kernel_lge_mako",
+   "target_path": "kernel/lge/mako"
+ },
+ {
+   "repository": "proprietary_vendor_lge",
+   "target_path": "vendor/lge"
+ }
+]
