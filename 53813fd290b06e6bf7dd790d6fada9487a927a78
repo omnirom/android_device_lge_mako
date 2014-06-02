@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b77b57d_312990e1",
+        "filename": "init.mako.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2014-06-02T22:54:22Z",
+      "side": 0,
+      "message": "If this spams the logs, something is very wrong and it\u0027s ideal to get as much info as possible.",
+      "revId": "53813fd290b06e6bf7dd790d6fada9487a927a78",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b77b57d_51260c12",
+        "filename": "init.mako.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2014-06-02T22:54:22Z",
+      "side": 0,
+      "message": "Is this spammy?",
+      "revId": "53813fd290b06e6bf7dd790d6fada9487a927a78",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
