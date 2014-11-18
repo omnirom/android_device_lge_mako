@@ -72,13 +72,24 @@ TARGET_USES_C2D_COMPOSITON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 #TARGET_RECOVERY_UI_LIB := librecovery_ui_mako
 
+# Enable dex-preoptimization to speed up first boot sequence
+ifeq ($(HOST_OS),linux)
+  ifeq ($(TARGET_BUILD_VARIANT),user)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+
 TARGET_RECOVERY_FSTAB = device/lge/mako/fstab.mako
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 23068672 # 22M
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 23068672 # 22M
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 880803840 # 840M
-
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 6189744128 # 5.9G
+BOARD_CACHEIMAGE_PARTITION_SIZE := 738197504 # 704 MByte
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 
 BOARD_USES_SECURE_SERVICES := true
@@ -93,28 +104,35 @@ TARGET_NO_RPC := true
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/lge/mako
 
-BOARD_SEPOLICY_DIRS := \
+BOARD_SEPOLICY_DIRS += \
        device/lge/mako/sepolicy
 
-BOARD_SEPOLICY_UNION := \
-       app.te \
-       bluetooth.te \
+BOARD_SEPOLICY_UNION += \
+       bluetooth_loader.te \
+       bridge.te \
+       camera.te \
+       conn_init.te \
        device.te \
        domain.te \
-       drmserver.te \
        file.te \
        file_contexts \
-       hci_init.te \
-       init_shell.te \
-       keystore.te \
-       mediaserver.te \
+       hostapd.te \
        kickstart.te \
-       nfc.te \
+       mediaserver.te \
+       mpdecision.te \
+       netmgrd.te \
+       property.te \
+       property_contexts \
+       qmux.te \
        rild.te \
+       rmt.te \
+       sensors.te \
        surfaceflinger.te \
-       system.te \
-       ueventd.te \
-       wpa.te
+       system_server.te \
+       tee.te \
+       te_macros \
+       thermald.te \
+       ueventd.te
 
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
@@ -125,6 +143,11 @@ USE_DEVICE_SPECIFIC_QCOM_PROPRIETARY:= true
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
 HAVE_ADRENO_SOURCE:= false
+
+# Include an expanded selection of fonts
+EXTENDED_FONT_FOOTPRINT := true
+
+MALLOC_IMPL := dlmalloc
 
 -include vendor/lge/mako/BoardConfigVendor.mk
 
