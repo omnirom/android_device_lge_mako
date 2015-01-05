@@ -159,8 +159,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_CHARACTERISTICS := nosdcard
 
-PRODUCT_TAGS += dalvik.gc.type-precise
-
 PRODUCT_PACKAGES += \
 	librs_jni \
 	com.android.future.usb.accessory
