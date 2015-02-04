@@ -74,13 +74,11 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
 # Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
-  ifeq ($(TARGET_BUILD_VARIANT),user)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
+  ifeq ($(WITH_DEXPREOPT),)
+    WITH_DEXPREOPT := true
   endif
 endif
-WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+#WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
 TARGET_RECOVERY_FSTAB = device/lge/mako/fstab.mako
 TARGET_USERIMAGES_USE_EXT4 := true
