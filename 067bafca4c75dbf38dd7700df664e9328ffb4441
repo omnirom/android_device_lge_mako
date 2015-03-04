@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b22818b_3d635a0d",
+        "filename": "omni_mako.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2015-03-04T13:05:35Z",
+      "side": 1,
+      "message": "why there has been no fingerprint before?\ncan you paste the fingerprint you got before this change please?",
+      "revId": "067bafca4c75dbf38dd7700df664e9328ffb4441",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
