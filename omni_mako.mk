@@ -33,6 +33,12 @@ PRODUCT_BRAND := google
 PRODUCT_MODEL := Nexus 4
 PRODUCT_MANUFACTURER := LGE
 
+#Set build fingerprint / ID / Prduct Name ect.
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=occam \
+    PRIVATE_BUILD_DESC="occam-user 5.0.1 LRX22C 1602158 release-keys" \
+    BUILD_FINGERPRINT="google/occam/mako:5.0.1/LRX22C/1602158:user/release-keys"
+
 # Kernel inline build
 TARGET_KERNEL_CONFIG := mako_defconfig
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7
