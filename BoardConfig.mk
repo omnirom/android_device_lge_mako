@@ -74,7 +74,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
 # Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
-  ifeq ($(TARGET_BUILD_VARIANT),user)
+  ifneq (,$(filter $(TARGET_BUILD_VARIANT),user userdebug))
     ifeq ($(WITH_DEXPREOPT),)
       WITH_DEXPREOPT := true
     endif
