@@ -152,7 +152,7 @@ MALLOC_IMPL := dlmalloc
 -include vendor/lge/mako/BoardConfigVendor.mk
 
 #TWRP config
-DEVICE_RESOLUTION := 720x1280
+TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 BOARD_HAS_NO_REAL_SDCARD := true
