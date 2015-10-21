@@ -3,18 +3,12 @@
     "remote":      "omnirom",
     "repository":  "android_kernel_lge_mako",
     "target_path": "kernel/lge/mako",
-    "revision":    "android-5.1"
+    "revision":    "android-6.0"
   },
   {
     "remote":      "omnirom",
-    "repository":  "android_prebuilts_gcc_linux-x86_arm_arm-eabi-4.7",
-    "target_path": "prebuilts/gcc/linux-x86/arm/arm-eabi-4.7",
-    "revision":    "android-5.1"
-  },
-  {
-    "remote":      "omnirom",
-    "repository":  "android_prebuilts_gcc_darwin-x86_arm_arm-eabi-4.7",
-    "target_path": "prebuilts/gcc/darwin-x86/arm/arm-eabi-4.7",
-    "revision":    "android-5.1"
+    "repository":  "android_external_stlport",
+    "target_path": "external/stlport",
+    "revision":    "android-6.0"
   }
 ]
