@@ -10,7 +10,10 @@ allow rmt self:capability { setuid setgid };
 
 # opens and reads /dev/block/mmcblk0
 allow rmt root_block_device:blk_file r_file_perms;
-allow rmt root_block_device:dir r_dir_perms;
+allow rmt block_device:dir r_dir_perms;
+
+# Needed for ioprio_set(IOPRIO_WHO_PROCESS, 0, IOPRIO_CLASS_RT << IOPRIO_CLASS_SHIFT);
+allow rmt self:capability sys_admin;
 
 # Allow shared memory logging access
 allow rmt shared_log_device:chr_file rw_file_perms;
@@ -21,6 +24,8 @@ allow rmt cgroup:dir { create add_name };
 # Wake lock access
 wakelock_use(rmt)
 
-# Access property service to set ctl.rmt_storage
+# Allow access to /dev/uio0.
+allow rmt uio_device:chr_file rw_file_perms;
+
 unix_socket_connect(rmt, property, init)
 allow rmt ctl_rmt_prop:property_service set;
