@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8f5b13e_1eb17c41",
+        "filename": "overlay/frameworks/base/core/res/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2015-11-08T03:50:30Z",
+      "side": 1,
+      "message": "There is one more \u003c of what is needed.\n\nCheck original one: \u003cbool name\u003d\"config_dozeUseAccelerometer\"\u003etrue\u003c/bool\u003e\nand yours: \u003c\u003cbool name\u003d\"config_dozeUseAccelerometer\"\u003etrue\u003c/bool\u003e",
+      "revId": "5191e4e4627bc72746ddb8a3a8c772f9db4d7939",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
