@@ -154,6 +154,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-filter=speed \
     dalvik.vm.dex2oat-swap=false
 
 PRODUCT_CHARACTERISTICS := nosdcard
