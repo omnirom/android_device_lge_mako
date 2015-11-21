@@ -189,3 +189,4 @@
 /system/vendor/lib/libizat_core.so
 /system/vendor/lib/libloc_api_v02.so
 /system/vendor/lib/libloc_ds_api.so
+/system/vendor/lib/mediadrm/libwvdrmengine.so
