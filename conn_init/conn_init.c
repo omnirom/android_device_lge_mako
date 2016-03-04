@@ -38,7 +38,7 @@ static int wifi_check_qcom_cfg_files()
     }
     else
     {
-        n = fread(macAddress, 1, 12, fp);
+        n = fread(macAddress, 12, 1, fp);
         fclose(fp);
         if (n == 0) {
             // Buffer may be partially written. Reset.
