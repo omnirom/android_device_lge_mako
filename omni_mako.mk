@@ -38,6 +38,7 @@ PRODUCT_MANUFACTURER := LGE
 
 # Kernel inline build
 TARGET_KERNEL_CONFIG := mako_defconfig
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7
 TARGET_VARIANT_CONFIG := mako_defconfig
 TARGET_SELINUX_CONFIG := mako_defconfig
 
