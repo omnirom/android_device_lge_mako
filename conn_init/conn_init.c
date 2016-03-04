@@ -29,7 +29,6 @@ static int wifi_check_qcom_cfg_files()
 
     // Read MAC String
     FILE *fp = NULL;
-    int n = 0;
     fp = fopen("/persist/wifi/.macaddr", "r");
     if ( fp == NULL )
     {
@@ -38,13 +37,13 @@ static int wifi_check_qcom_cfg_files()
     }
     else
     {
-        n = fread(macAddress, 1, 12, fp);
+        int n = fread(macAddress, 1, 12, fp);
         fclose(fp);
-        if (n == 0) {
-            // Buffer may be partially written. Reset.
-            memset(macAddress, 0, sizeof(macAddress));
+        if (n != 12) {
+            memset(macAddress, 0, 13);
+            wfc_util_qcom_check_config((unsigned char *)macAddress);
+            return 0;
         }
-
         // Write MAC String
         wfc_util_atoh( macAddress, 12, (unsigned char *)hex, 6);
         wfc_util_qcom_check_config((unsigned char *)hex);
