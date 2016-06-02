@@ -194,6 +194,10 @@ PRODUCT_PACKAGES += \
 	libmmcamera_interface2 \
 	libmmcamera_interface
 
+# SnapdragonCamera
+PRODUCT_PACKAGES += \
+        SnapdragonCamera
+
 PRODUCT_PACKAGES += \
         libmm-omxcore \
 	libdivxdrmdecrypt \
