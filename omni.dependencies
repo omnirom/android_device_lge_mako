@@ -10,7 +10,7 @@
     "repository":  "android_external_stlport",
     "target_path": "external/stlport",
     "revision":    "android-6.0"
-  }
+  },
   {
     "remote": "omnirom",
     "repository": "android_packages_apps_SnapdragonCamera",
