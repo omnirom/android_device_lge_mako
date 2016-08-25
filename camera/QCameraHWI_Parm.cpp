@@ -699,7 +699,7 @@ void QCameraHardwareInterface::loadTables()
 
 rat_t getRational(int num, int denom)
 {
-    rat_t temp = {(uint32_t)num, (uint32_t)denom};
+    rat_t temp = {static_cast<uint32_t>(num), static_cast<uint32_t>(denom)};
     return temp;
 }
 
@@ -3253,7 +3253,7 @@ status_t QCameraHardwareInterface::setCaptureBurstExp()
     char burst_exp[PROPERTY_VALUE_MAX];
     memset(burst_exp, 0, sizeof(burst_exp));
     property_get("persist.capture.burst.exposures", burst_exp, "");
-    if (*burst_exp)
+    if (strlen(burst_exp) != 0)
       mParameters.set("capture-burst-exposures", burst_exp);
     return NO_ERROR;
 }
@@ -4049,7 +4049,7 @@ void QCameraHardwareInterface::initExifData(){
         ALOGE("%s: getExifModel failed", __func__);
     }
 
-    if(*mExifValues.dateTime) {
+    if(strlen(mExifValues.dateTime) != 0) {
         addExifTag(EXIFTAGID_EXIF_DATE_TIME_ORIGINAL, EXIF_ASCII,
                 20, 1, (void *)mExifValues.dateTime);
         addExifTag(EXIFTAGID_EXIF_DATE_TIME_DIGITIZED, EXIF_ASCII,
@@ -4074,7 +4074,7 @@ void QCameraHardwareInterface::initExifData(){
     if(mExifValues.mLatitude) {
         addExifTag(EXIFTAGID_GPS_LATITUDE, EXIF_RATIONAL, 3, 1, (void *)mExifValues.latitude);
 
-        if(*mExifValues.latRef) {
+        if(strlen(mExifValues.latRef) != 0) {
             addExifTag(EXIFTAGID_GPS_LATITUDE_REF, EXIF_ASCII, 2,
                     1, (void *)mExifValues.latRef);
         }
@@ -4083,7 +4083,7 @@ void QCameraHardwareInterface::initExifData(){
     if(mExifValues.mLongitude) {
         addExifTag(EXIFTAGID_GPS_LONGITUDE, EXIF_RATIONAL, 3, 1, (void *)mExifValues.longitude);
 
-        if(*mExifValues.lonRef) {
+        if(strlen(mExifValues.lonRef) != 0) {
             addExifTag(EXIFTAGID_GPS_LONGITUDE_REF, EXIF_ASCII, 2,
                     1, (void *)mExifValues.lonRef);
         }
