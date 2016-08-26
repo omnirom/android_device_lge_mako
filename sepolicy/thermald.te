@@ -31,7 +31,8 @@ allow thermald sysfs_devices_system_cpu:file rw_file_perms;
 # For example, the following files pop in and out of existance:
 # /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_min_freq
 # /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-allow thermald sysfs:file write;
+allow thermald sysfs:file { getattr read open write };
+allow thermald sysfs:dir { read open };
 
 # Connect to mpdecision.
 allow thermald mpdecision_socket:dir r_dir_perms;
