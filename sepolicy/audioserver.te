@@ -1,0 +1,5 @@
+# Grant access to Qualcomm MSM Interface (QMI) audio sockets to audioserver
+qmux_socket(audioserver)
+
+# Grant socket creation to audioserver
+allow audioserver self:socket create_socket_perms;
