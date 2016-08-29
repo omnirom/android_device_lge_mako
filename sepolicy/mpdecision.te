@@ -36,7 +36,7 @@ allow mpdecision sysfs_mpdecision:file rw_file_perms;
 # For example, the following files pop in and out of existance:
 # /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_min_freq
 # /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-allow mpdecision sysfs:file write;
+allow mpdecision sysfs:file { open write };
 
 # This is needed to allow mpdecision to look at system_server's
 # /proc/PID/status file.
