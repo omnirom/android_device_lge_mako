@@ -21,7 +21,7 @@ LOCAL_COPY_HEADERS += mm_omx_jpeg_encoder.h
 LOCAL_C_INCLUDES+= $(LOCAL_PATH)/..
 LOCAL_C_INCLUDES+= $(LOCAL_PATH)/../inc
 
-LOCAL_C_INCLUDES+= hardware/qcom/media/msm8974/mm-core/inc
+LOCAL_C_INCLUDES+= hardware/qcom/media/mm-core/inc
 LOCAL_CFLAGS += -include bionic/libc/include/sys/socket.h
 LOCAL_CFLAGS += -include bionic/libc/include/sys/un.h
 
