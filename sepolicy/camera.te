@@ -7,8 +7,8 @@ init_daemon_domain(camera)
 
 
 # Interact with other media devices
-allow camera camera_device:dir search;
-allow camera { video_device camera_device }:chr_file rw_file_perms;
+allow camera video_device:dir search;
+allow camera { gpu_device video_device }:chr_file rw_file_perms;
 allow camera { surfaceflinger mediaserver }:fd use;
 
 # Create front and back camera sockets (/data/cam_socket[01])
@@ -31,15 +31,14 @@ allow camera system_file:file execmod;
 allow camera cameraserver:fd { use };
 
 # Interact with ion
-allow camera ion_device:chr_file { getattr ioctl read write open };
+allow camera ion_device:chr_file rw_file_perms;
 
 # Interact with sysfs
 allow camera sysfs:file { getattr read write open };
 
 # Interact with /data
-allow camera apk_data_file:dir { getattr read write open search };
-allow camera storage_file:dir { getattr read write open search };
+allow camera apk_data_file:dir rw_dir_perms;
+allow camera storage_file:dir rw_dir_perms;
+allow camera mnt_user_file:dir rw_dir_perms;
 allow camera storage_file:lnk_file { getattr read write open };
-allow camera mnt_user_file:dir { getattr read write open search };
-allow camera mnt_user_file:lnk_file { getattr read write open };
-allow camera fuse:dir { getattr read write open search };
+allow camera fuse:dir rw_dir_perms;
