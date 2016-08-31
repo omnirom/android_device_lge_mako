@@ -1,0 +1,2 @@
+# Allow MediaCodec to get H/W accelerated codecs
+allow mediacodec audio_device:chr_file { open read write ioctl };
