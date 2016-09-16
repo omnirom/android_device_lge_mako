@@ -379,6 +379,10 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     on property:init.svc.qcamerasvr=running
     restart cameraserver
 
+# Restart cameraserver in case it starts before qcamerasvr
+on property:init.svc.qcamerasvr=running
+    restart cameraserver
+
 service wcnss_init /system/bin/sh /system/etc/init.mako.wifi.sh
     class late_start
     user system
