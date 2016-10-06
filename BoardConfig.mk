@@ -138,3 +138,4 @@ TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/usb-otg"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "usb-otg"
+-include vendor/lge/mako/BoardConfigVendor.mk
