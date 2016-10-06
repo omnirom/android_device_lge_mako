@@ -269,5 +269,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
+PRODUCT_PROPERTY_OVERRIDES += \
+	media.stagefright.legacyencoder=1
+
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, hardware/qcom/msm8960/msm8960.mk)

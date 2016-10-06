@@ -48,6 +48,7 @@ TARGET_BOARD_INFO_FILE := device/lge/mako/board-info.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/mako/bluetooth
 
 USE_CLANG_PLATFORM_BUILD := true
+BIONIC_LIBC_DISABLE_CLANG := true
 
 # FIXME: HOSTAPD-derived wifi driver
 BOARD_HAS_QCOM_WLAN := true
@@ -113,6 +114,9 @@ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
 HAVE_ADRENO_SOURCE:= false
 
+# Enable Minikin text layout engine (will be the default soon)
+USE_MINIKIN := true
+
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
@@ -138,4 +142,5 @@ TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/usb-otg"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "usb-otg"
+
 -include vendor/lge/mako/BoardConfigVendor.mk
