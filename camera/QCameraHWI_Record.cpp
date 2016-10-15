@@ -210,8 +210,13 @@ void QCameraStream_record::releaseEncodeBuffer() {
       ALOGE("%s: Unmapping Video Data Failed", __func__);
 
     if (mHalCamCtrl->mStoreMetaDataInFrame) {
+#ifdef USE_NATIVE_HANDLE_SOURCE
+      struct encoder_nativehandle_buffer_type * packet =
+          (struct encoder_nativehandle_buffer_type  *)
+#else
       struct encoder_media_buffer_type * packet =
           (struct encoder_media_buffer_type  *)
+#endif
           mHalCamCtrl->mRecordingMemory.metadata_memory[cnt]->data;
       native_handle_delete(const_cast<native_handle_t *>(packet->meta_handle));
       mHalCamCtrl->mRecordingMemory.metadata_memory[cnt]->release(
@@ -456,13 +461,24 @@ status_t QCameraStream_record::initEncodeBuffers()
 
       if (mHalCamCtrl->mStoreMetaDataInFrame) {
         mHalCamCtrl->mRecordingMemory.metadata_memory[cnt] =
+#ifdef USE_NATIVE_HANDLE_SOURCE
+          mHalCamCtrl->mGetMemory(-1,
+          sizeof(struct encoder_nativehandle_buffer_type), 1, (void *)this);
+        struct encoder_nativehandle_buffer_type * packet =
+          (struct encoder_nativehandle_buffer_type  *)
+#else
           mHalCamCtrl->mGetMemory(-1,
           sizeof(struct encoder_media_buffer_type), 1, (void *)this);
         struct encoder_media_buffer_type * packet =
           (struct encoder_media_buffer_type  *)
+#endif
           mHalCamCtrl->mRecordingMemory.metadata_memory[cnt]->data;
         packet->meta_handle = native_handle_create(1, 2); //1 fd, 1 offset and 1 size
+#ifdef USE_NATIVE_HANDLE_SOURCE
+        packet->buffer_type = kMetadataBufferTypeNativeHandleSource;
+#else
         packet->buffer_type = kMetadataBufferTypeCameraSource;
+#endif
         native_handle_t * nh = const_cast<native_handle_t *>(packet->meta_handle);
         nh->data[0] = mHalCamCtrl->mRecordingMemory.fd[cnt];
         nh->data[1] = 0;

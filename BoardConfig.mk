@@ -102,6 +102,9 @@ TARGET_NO_RPC := true
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/lge/mako
 
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+TARGET_USES_MEDIA_EXTENSIONS := true
+
 BOARD_SEPOLICY_DIRS += \
        device/lge/mako/sepolicy
 
@@ -123,8 +126,6 @@ EXTENDED_FONT_FOOTPRINT := true
 MALLOC_SVELTE := true
 
 TARGET_NEEDS_PLATFORM_TEXTRELS := true
-
--include vendor/lge/mako/BoardConfigVendor.mk
 
 #TWRP config
 TW_THEME := portrait_hdpi
