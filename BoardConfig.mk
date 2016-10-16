@@ -122,6 +122,8 @@ EXTENDED_FONT_FOOTPRINT := true
 
 MALLOC_SVELTE := true
 
+TARGET_NEEDS_PLATFORM_TEXTRELS := true
+
 -include vendor/lge/mako/BoardConfigVendor.mk
 
 #TWRP config
