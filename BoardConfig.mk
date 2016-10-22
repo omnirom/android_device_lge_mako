@@ -126,6 +126,8 @@ EXTENDED_FONT_FOOTPRINT := true
 MALLOC_SVELTE := true
 
 TARGET_NEEDS_PLATFORM_TEXTRELS := true
+KERNEL_TOOLCHAIN_PREFIX := arm-linux-androideabi-
+TARGET_HAS_CAMERA_HAL_V1 := true
 
 #TWRP config
 TW_THEME := portrait_hdpi
