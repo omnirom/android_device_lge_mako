@@ -23,6 +23,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 # Bootanimation
 TARGET_BOOTANIMATION_SIZE := 720x407
 
+# Custom SELinux Permission
+TARGET_USES_CUSTOM_CAMERA_PERMISSION := true
+
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, vendor/omni/config/gsm.mk)
