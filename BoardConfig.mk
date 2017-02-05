@@ -128,6 +128,8 @@ TARGET_NEEDS_PLATFORM_TEXTRELS := true
 KERNEL_TOOLCHAIN_PREFIX := arm-linux-androideabi-
 TARGET_HAS_CAMERA_HAL_V1 := true
 
+-include vendor/lge/mako/BoardConfigVendor.mk
+
 #TWRP config
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
