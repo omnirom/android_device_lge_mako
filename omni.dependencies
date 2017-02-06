@@ -15,6 +15,6 @@
     "remote": "omnirom",
     "repository": "android_packages_apps_SnapdragonCamera",
     "target_path": "packages/apps/SnapdragonCamera",
-    "revision": "android-7.0"
+    "revision": "android-7.1"
   }
 ]
