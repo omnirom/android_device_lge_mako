@@ -102,15 +102,20 @@ TARGET_NO_RPC := true
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/lge/mako
 
-TARGET_USES_MEDIA_EXTENSIONS := true
-
 BOARD_SEPOLICY_DIRS += \
        device/lge/mako/sepolicy
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
+TARGET_NEEDS_GCC_LIBC := true
+
+# Camera
 USE_DEVICE_SPECIFIC_CAMERA:= true
 USE_DEVICE_SPECIFIC_QCOM_PROPRIETARY:= true
+TARGET_USES_MEDIA_EXTENSIONS := true
+TARGET_NEEDS_PLATFORM_TEXTRELS := true
+KERNEL_TOOLCHAIN_PREFIX := arm-linux-androideabi-
+TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
@@ -123,12 +128,6 @@ USE_MINIKIN := true
 EXTENDED_FONT_FOOTPRINT := true
 
 MALLOC_SVELTE := true
-
-TARGET_NEEDS_PLATFORM_TEXTRELS := true
-KERNEL_TOOLCHAIN_PREFIX := arm-linux-androideabi-
-TARGET_HAS_CAMERA_HAL_V1 := true
-
--include vendor/lge/mako/BoardConfigVendor.mk
 
 #TWRP config
 TW_THEME := portrait_hdpi
